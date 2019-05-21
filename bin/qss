@@ -1,0 +1,20 @@
+#! /usr/bin/env node
+
+const yargs = require('yargs');
+
+yargs
+  .command('$0', '', () => {
+  }, () => {
+    require('../action/list')();
+  })
+  .command('add', 'Add User/Host', () => {
+  }, () => {
+    require('../action/add')();
+  })
+  .command('config', 'Config Host', () => {
+  }, () => {
+    require('../action/config')();
+  })
+  .version()
+  .help('help')
+  .argv;
