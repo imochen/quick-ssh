@@ -1,4 +1,6 @@
-# Quick-ssh
+# Quick-SSH
+
+Only use for can`t use Public Key. Don`t need Quick SSH, If you can use Public Key for login, 
 
 ## Usage
 
