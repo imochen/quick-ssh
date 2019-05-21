@@ -1,7 +1,8 @@
 # Quick-SSH
 
 Only use for Public Key unavailable.
-Probably don't need `Quick SSH`, If you can use Public Key for login, 
+
+Probably don't need `Quick SSH`, If you can use Public Key for login.
 
 ## Usage
 
