@@ -1,15 +1,15 @@
-const {execSync} = require('child_process');
+const { execSync } = require('child_process');
 const path = require('path');
 const _ = require('lodash');
 const prompt = require('inquirer').createPromptModule();
 
-const {readFile} = require('../util/file');
+const { readFile } = require('../util/file');
 
-module.exports = async function() {
+module.exports = async function () {
   const hosts = readFile('host');
   const users = readFile('user');
 
-  const {key} = await prompt({
+  const { key } = await prompt({
     name: 'key',
     message: '请选择你要登录的主机',
     type: 'list',
@@ -22,7 +22,9 @@ module.exports = async function() {
   });
   const host = hosts[key];
   const user = users[host.user];
-  execSync(`${path.resolve(__dirname, '../shell/login.sh')} ${user.user} ${host.host} ${user.password} ${host.port || 22}`, {
-    stdio: 'inherit'
-  });
+  try {
+    execSync(`${path.resolve(__dirname, '../shell/login.sh')} ${user.user} ${host.host} ${user.password} ${host.port || 22}`, {
+      stdio: 'inherit'
+    });
+  } catch (e) { };
 }
