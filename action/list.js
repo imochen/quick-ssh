@@ -22,7 +22,7 @@ module.exports = async function() {
   });
   const host = hosts[key];
   const user = users[host.user];
-  execSync(`${path.resolve(__dirname, '../shell/login.sh')} ${user.user} ${host.host} ${user.password} ${host.port}`, {
+  execSync(`${path.resolve(__dirname, '../shell/login.sh')} ${user.user} ${host.host} ${user.password} ${host.port || 22}`, {
     stdio: 'inherit'
   });
 }
