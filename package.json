@@ -1,6 +1,6 @@
 {
   "name": "@mochen/qss",
-  "version": "1.1.1",
+  "version": "1.1.2",
   "description": "",
   "main": "index.js",
   "scripts": {
@@ -22,7 +22,7 @@
   "homepage": "https://github.com/imochen/quick-ssh#readme",
   "dependencies": {
     "fs-extra": "^8.0.1",
-    "inquirer": "^6.3.1",
+    "inquirer": "^6.4.1",
     "lodash": "^4.17.11",
     "yargs": "^13.2.4"
   }
