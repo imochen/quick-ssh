@@ -8,7 +8,7 @@ set port [lindex $argv 3]
 
 spawn ssh $user@$host -p $port
 expect {
-  "Are you sure you want to continue connecting (yes/no)?" {
+  "Are you sure you want to continue connecting" {
     send "yes\n"
     expect "password:"
     send "$pwd\n"
