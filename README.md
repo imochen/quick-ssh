@@ -7,6 +7,7 @@ Probably don't need `Quick SSH`, If you can use Public Key for login.
 ## Update
 
 ### 1.0.3
+
 - add ssh port support, default 22.
 
 ## Usage
@@ -15,19 +16,28 @@ Probably don't need `Quick SSH`, If you can use Public Key for login.
 npm install -g @mochen/qss
 ```
 
-####  add a user or host
+#### add a user or host
+
 ```shell
 qss add
 ```
 
-#### manage user or host
+#### edit user or host
+
 ```shell
 qss config
 ```
 
+#### remove user or host
+
+```shell
+qss remove
+```
+
 #### list all host and select login
+
 ```shell
 qss
 ```
 
-Config File at `$HOME/.qss/`
+Config File at `$HOME/.qssrc`

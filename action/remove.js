@@ -25,28 +25,16 @@ const processFunc = {
         }
       }),
     });
-
-    const targetUserInfo = store.user[alias];
-
-    const { user = targetUserInfo.user } = await prompt({
-      name: 'user',
-      message: '请输入用户名：',
-      default: targetUserInfo.user,
-      type: 'input',
+    const { bool } = await prompt({
+      name: 'bool',
+      message: `将要移除 ${alias}, 请确认`,
+      type: 'confirm',
     });
-    const { password = targetUserInfo.password } = await prompt({
-      name: 'password',
-      message: `请为用户[${user}]输入密码：`,
-      default: targetUserInfo.password,
-      type: 'input',
-    });
+    if (!bool) process.exit(0);
 
-    store.user[alias] = {
-      user,
-      password,
-    }
+    delete store.user[alias];
     writeFile(configFilePath, store);
-    success('恭喜，修改成功！');
+    success('恭喜，删除成功！');
   },
   async host() {
     const store = readFile(configFilePath);
@@ -69,37 +57,15 @@ const processFunc = {
         }
       }),
     });
-
-    const targetHostInfo = store.host[alias];
-
-    const { host = targetHostInfo.host } = await prompt({
-      name: 'host',
-      message: '请输入主机地址或别名，如[10.0.0.12/infa1v.bjtb.org.io]：',
-      default: targetHostInfo.host,
-      type: 'input',
+    const { bool } = await prompt({
+      name: 'bool',
+      message: `将要移除 ${alias}, 请确认`,
+      type: 'confirm',
     });
-    const { port = targetHostInfo.port } = await prompt({
-      name: 'password',
-      message: `请输入ssh端口：`,
-      default: targetHostInfo.port,
-      type: 'input',
-    });
-
-    const { user = targetHostInfo.user } = await prompt({
-      name: 'user',
-      message: `分配一个登陆用的账号：`,
-      type: 'list',
-      default: targetHostInfo.user,
-      choices: Object.keys(store.user),
-    });
-
-    store.host[alias] = {
-      host,
-      port,
-      user,
-    }
+    if (!bool) process.exit(0);
+    delete store.host[alias];
     writeFile(configFilePath, store);
-    success('恭喜，修改成功！');
+    success('恭喜，删除成功！');
   }
 }
 

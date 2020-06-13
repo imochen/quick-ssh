@@ -1,13 +1,13 @@
-const _ = require('lodash');
 const prompt = require('inquirer').createPromptModule();
 
-const { writeFile, readFile } = require('../util/file');
-const { types } = require('../config/index');
+const { writeFile, readFile } = require('../util/secure.local.file');
+const { success, error, warning } = require('../util/xlog');
+const { configFilePath } = require('../config/index');
 
-const write = {
+const processFunc = {
   async user() {
-    const result = {};
-    const data = readFile('user');
+    const store = readFile(configFilePath);
+    store.user = store.user || {};
 
     const { user } = await prompt({
       name: 'user',
@@ -19,80 +19,84 @@ const write = {
       message: `请为用户[${user}]输入密码：`,
       type: 'input',
     });
-    const { group } = await prompt({
-      name: 'group',
-      message: `请为这个用户分配一个别名：`,
+    const { alias = 'default' } = await prompt({
+      name: 'alias',
+      message: '请为这个用户分配一个别名：',
       type: 'input',
       default: 'default',
-      validate(value) {
-        if (!value) {
-          return `别名不能为空`;
-        }
-        if (data[value]) {
-          return `别名 [${value}] 已存在，如需修改，请使用[qss config]命令`;
-        }
+      validate(v) {
+        if (!v) return '别名不能为空';
+        if (store.user[v]) return `别名 [${v}] 已存在`;
         return true;
       }
     });
-    result[`${group}`] = {
+    store.user[alias] = {
       user,
-      password
-    };
-
-    writeFile('user', _.extend(data, result));
+      password,
+    }
+    writeFile(configFilePath, store);
+    success('恭喜，添加成功！');
   },
   async host() {
-    const result = {};
-    const data = readFile('host');
+    const store = readFile(configFilePath);
+    store.host = store.host || {};
+    store.user = store.user || {};
+
+    if (Object.keys(store.user).length === 0) {
+      warning('请先添加一个用户，再添加主机信息');
+      process.exit(0);
+    }
+
     const { host } = await prompt({
       name: 'host',
-      message: '请输入主机地址或别名，如[192.168.1.0/infa1v.bjtb.org.io]：',
+      message: '请输入主机地址或别名，如[10.0.0.12/infa1v.bjtb.org.io]：',
       type: 'input',
-      validate(value) {
-        if (!value) {
-          return `主机地址不能为空`;
-        }
-        if (data[value]) {
-          return `主机 [${value}] 已存在，如需修改，请使用[qss config]命令`;
-        }
-        return true;
-      }
     });
-    const { port } = await prompt({
+    const { port = 22 } = await prompt({
       name: 'password',
       message: `请输入ssh端口：`,
       default: 22,
       type: 'input',
     });
-    const { name } = await prompt({
-      name: 'name',
+    const { alias } = await prompt({
+      name: 'alias',
       message: `为主机 [${host}] 取一个自定义名称：`,
       type: 'input',
+      validate(v) {
+        if (!v) return '别名不能为空';
+        if (store.host[v]) return `别名 [${v}}] 已存在`;
+        return true;
+      }
     });
-    const users = readFile('user');
+
     const { user } = await prompt({
       name: 'user',
-      message: `分配一个登陆用的账号密码：`,
+      message: `分配一个登陆用的账号：`,
       type: 'list',
-      choices: Object.keys(users),
+      choices: Object.keys(store.user),
     });
-    result[`${host}`] = {
-      host,
-      name,
-      user,
-      port
-    };
 
-    writeFile('host', _.extend(data, result));
+    store.host[alias] = {
+      host,
+      port,
+      user,
+    }
+    writeFile(configFilePath, store);
+    success('恭喜，添加成功！');
   }
-};
+}
 
 module.exports = async function () {
   const { type } = await prompt({
     name: 'type',
-    message: '你要配置用户还是主机信息？',
+    message: '请选择要操作的信息类别：',
     type: 'list',
-    choices: ['用户', '主机'],
+    choices: [
+      { name: '用户', value: 'user' },
+      { name: '主机', value: 'host' }
+    ]
   });
-  write[`${types[type]}`]();
+  const func = processFunc[type];
+  if (!func) return error(`${type} is invalid`)
+  func();
 }

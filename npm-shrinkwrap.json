@@ -1,9 +1,34 @@
 {
   "name": "@mochen/qss",
-  "version": "1.1.3",
+  "version": "2.0.0",
   "lockfileVersion": 1,
   "requires": true,
   "dependencies": {
+    "@types/color-name": {
+      "version": "1.1.1",
+      "resolved": "http://npm.mter.io/@types%2fcolor-name/-/color-name-1.1.1.tgz",
+      "integrity": "sha1-HBJhu+qhCoBVu8XYq4S3sq/IRqA="
+    },
+    "ansi-align": {
+      "version": "3.0.0",
+      "resolved": "http://npm.mter.io/ansi-align/-/ansi-align-3.0.0.tgz",
+      "integrity": "sha1-tTazcc9ofKrvI2wY0+If43l0Z8s=",
+      "requires": {
+        "string-width": "^3.0.0"
+      },
+      "dependencies": {
+        "string-width": {
+          "version": "3.1.0",
+          "resolved": "http://npm.mter.io/string-width/-/string-width-3.1.0.tgz",
+          "integrity": "sha1-InZ74htirxCBV0MG9prFG2IgOWE=",
+          "requires": {
+            "emoji-regex": "^7.0.1",
+            "is-fullwidth-code-point": "^2.0.0",
+            "strip-ansi": "^5.1.0"
+          }
+        }
+      }
+    },
     "ansi-escapes": {
       "version": "3.2.0",
       "resolved": "https://registry.npmjs.org/ansi-escapes/-/ansi-escapes-3.2.0.tgz",
@@ -20,6 +45,100 @@
       "integrity": "sha512-VT0ZI6kZRdTh8YyJw3SMbYm/u+NqfsAxEpWO0Pf9sq8/e94WxxOpPKx9FR1FlyCtOVDNOQ+8ntlqFxiRc+r5qA==",
       "requires": {
         "color-convert": "^1.9.0"
+      }
+    },
+    "boxen": {
+      "version": "4.2.0",
+      "resolved": "http://npm.mter.io/boxen/-/boxen-4.2.0.tgz",
+      "integrity": "sha1-5BG2I1fW1tNlh8isPV2XTaoHDmQ=",
+      "requires": {
+        "ansi-align": "^3.0.0",
+        "camelcase": "^5.3.1",
+        "chalk": "^3.0.0",
+        "cli-boxes": "^2.2.0",
+        "string-width": "^4.1.0",
+        "term-size": "^2.1.0",
+        "type-fest": "^0.8.1",
+        "widest-line": "^3.1.0"
+      },
+      "dependencies": {
+        "ansi-regex": {
+          "version": "5.0.0",
+          "resolved": "http://npm.mter.io/ansi-regex/-/ansi-regex-5.0.0.tgz",
+          "integrity": "sha1-OIU59VF5vzkznIGvMKZU1p+Hy3U="
+        },
+        "ansi-styles": {
+          "version": "4.2.1",
+          "resolved": "http://npm.mter.io/ansi-styles/-/ansi-styles-4.2.1.tgz",
+          "integrity": "sha1-kK51xCTQCNJiTFvynq0xd+v881k=",
+          "requires": {
+            "@types/color-name": "^1.1.1",
+            "color-convert": "^2.0.1"
+          }
+        },
+        "chalk": {
+          "version": "3.0.0",
+          "resolved": "http://npm.mter.io/chalk/-/chalk-3.0.0.tgz",
+          "integrity": "sha1-P3PCv1JlkfV0zEksUeJFY0n4ROQ=",
+          "requires": {
+            "ansi-styles": "^4.1.0",
+            "supports-color": "^7.1.0"
+          }
+        },
+        "color-convert": {
+          "version": "2.0.1",
+          "resolved": "http://npm.mter.io/color-convert/-/color-convert-2.0.1.tgz",
+          "integrity": "sha1-ctOmjVmMm9s68q0ehPIdiWq9TeM=",
+          "requires": {
+            "color-name": "~1.1.4"
+          }
+        },
+        "color-name": {
+          "version": "1.1.4",
+          "resolved": "http://npm.mter.io/color-name/-/color-name-1.1.4.tgz",
+          "integrity": "sha1-wqCah6y95pVD3m9j+jmVyCbFNqI="
+        },
+        "emoji-regex": {
+          "version": "8.0.0",
+          "resolved": "http://npm.mter.io/emoji-regex/-/emoji-regex-8.0.0.tgz",
+          "integrity": "sha1-6Bj9ac5cz8tARZT4QpY79TFkzDc="
+        },
+        "has-flag": {
+          "version": "4.0.0",
+          "resolved": "http://npm.mter.io/has-flag/-/has-flag-4.0.0.tgz",
+          "integrity": "sha1-lEdx/ZyByBJlxNaUGGDaBrtZR5s="
+        },
+        "is-fullwidth-code-point": {
+          "version": "3.0.0",
+          "resolved": "http://npm.mter.io/is-fullwidth-code-point/-/is-fullwidth-code-point-3.0.0.tgz",
+          "integrity": "sha1-8Rb4Bk/pCz94RKOJl8C3UFEmnx0="
+        },
+        "string-width": {
+          "version": "4.2.0",
+          "resolved": "http://npm.mter.io/string-width/-/string-width-4.2.0.tgz",
+          "integrity": "sha1-lSGCxGzHssMT0VluYjmSvRY7crU=",
+          "requires": {
+            "emoji-regex": "^8.0.0",
+            "is-fullwidth-code-point": "^3.0.0",
+            "strip-ansi": "^6.0.0"
+          }
+        },
+        "strip-ansi": {
+          "version": "6.0.0",
+          "resolved": "http://npm.mter.io/strip-ansi/-/strip-ansi-6.0.0.tgz",
+          "integrity": "sha1-CxVx3XZpzNTz4G4U7x7tJiJa5TI=",
+          "requires": {
+            "ansi-regex": "^5.0.0"
+          }
+        },
+        "supports-color": {
+          "version": "7.1.0",
+          "resolved": "http://npm.mter.io/supports-color/-/supports-color-7.1.0.tgz",
+          "integrity": "sha1-aOMlkd9z4lrRxLSRCKLsUHliv9E=",
+          "requires": {
+            "has-flag": "^4.0.0"
+          }
+        }
       }
     },
     "camelcase": {
@@ -41,6 +160,11 @@
       "version": "0.7.0",
       "resolved": "https://registry.npmjs.org/chardet/-/chardet-0.7.0.tgz",
       "integrity": "sha512-mT8iDcrh03qDGRRmoA2hmBJnxpllMR+0/0qlzjqZES6NdiWDcZkCNAk4rPFZ9Q85r27unkiNNg8ZOiwZXBHwcA=="
+    },
+    "cli-boxes": {
+      "version": "2.2.0",
+      "resolved": "http://npm.mter.io/cli-boxes/-/cli-boxes-2.2.0.tgz",
+      "integrity": "sha1-U47K6PnGylCOPDyVtFP+k8tMFo0="
     },
     "cli-cursor": {
       "version": "2.1.0",
@@ -101,6 +225,11 @@
         "shebang-command": "^1.2.0",
         "which": "^1.2.9"
       }
+    },
+    "dayjs": {
+      "version": "1.8.28",
+      "resolved": "http://npm.mter.io/dayjs/-/dayjs-1.8.28.tgz",
+      "integrity": "sha1-N6piAd9IPQiWRctsj2zvbwxNvAc="
     },
     "decamelize": {
       "version": "1.2.0",
@@ -530,6 +659,11 @@
         "has-flag": "^3.0.0"
       }
     },
+    "term-size": {
+      "version": "2.2.0",
+      "resolved": "http://npm.mter.io/term-size/-/term-size-2.2.0.tgz",
+      "integrity": "sha1-Hxat7f6b3BiADhd2ghc0CG/MZ1M="
+    },
     "through": {
       "version": "2.3.8",
       "resolved": "https://registry.npmjs.org/through/-/through-2.3.8.tgz",
@@ -548,6 +682,11 @@
       "resolved": "https://registry.npmjs.org/tslib/-/tslib-1.10.0.tgz",
       "integrity": "sha512-qOebF53frne81cf0S9B41ByenJ3/IuH8yJKngAX35CmiZySA0khhkovshKK+jGCaMnVomla7gVlIcc3EvKPbTQ=="
     },
+    "type-fest": {
+      "version": "0.8.1",
+      "resolved": "http://npm.mter.io/type-fest/-/type-fest-0.8.1.tgz",
+      "integrity": "sha1-CeJJ696FHTseSNJ8EFREZn8XuD0="
+    },
     "universalify": {
       "version": "0.1.2",
       "resolved": "https://registry.npmjs.org/universalify/-/universalify-0.1.2.tgz",
@@ -565,6 +704,49 @@
       "version": "2.0.0",
       "resolved": "https://registry.npmjs.org/which-module/-/which-module-2.0.0.tgz",
       "integrity": "sha1-2e8H3Od7mQK4o6j6SzHD4/fm6Ho="
+    },
+    "widest-line": {
+      "version": "3.1.0",
+      "resolved": "http://npm.mter.io/widest-line/-/widest-line-3.1.0.tgz",
+      "integrity": "sha1-gpIzO79my0X/DeFgOxNreuFJbso=",
+      "requires": {
+        "string-width": "^4.0.0"
+      },
+      "dependencies": {
+        "ansi-regex": {
+          "version": "5.0.0",
+          "resolved": "http://npm.mter.io/ansi-regex/-/ansi-regex-5.0.0.tgz",
+          "integrity": "sha1-OIU59VF5vzkznIGvMKZU1p+Hy3U="
+        },
+        "emoji-regex": {
+          "version": "8.0.0",
+          "resolved": "http://npm.mter.io/emoji-regex/-/emoji-regex-8.0.0.tgz",
+          "integrity": "sha1-6Bj9ac5cz8tARZT4QpY79TFkzDc="
+        },
+        "is-fullwidth-code-point": {
+          "version": "3.0.0",
+          "resolved": "http://npm.mter.io/is-fullwidth-code-point/-/is-fullwidth-code-point-3.0.0.tgz",
+          "integrity": "sha1-8Rb4Bk/pCz94RKOJl8C3UFEmnx0="
+        },
+        "string-width": {
+          "version": "4.2.0",
+          "resolved": "http://npm.mter.io/string-width/-/string-width-4.2.0.tgz",
+          "integrity": "sha1-lSGCxGzHssMT0VluYjmSvRY7crU=",
+          "requires": {
+            "emoji-regex": "^8.0.0",
+            "is-fullwidth-code-point": "^3.0.0",
+            "strip-ansi": "^6.0.0"
+          }
+        },
+        "strip-ansi": {
+          "version": "6.0.0",
+          "resolved": "http://npm.mter.io/strip-ansi/-/strip-ansi-6.0.0.tgz",
+          "integrity": "sha1-CxVx3XZpzNTz4G4U7x7tJiJa5TI=",
+          "requires": {
+            "ansi-regex": "^5.0.0"
+          }
+        }
+      }
     },
     "wrap-ansi": {
       "version": "5.1.0",
