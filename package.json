@@ -8,7 +8,8 @@
   "scripts": {
     "compile": "tsc",
     "lint": "eslint src/**/*.ts",
-    "lint:fix": "eslint src/**/*.ts --fix"
+    "lint:fix": "eslint src/**/*.ts --fix",
+    "prepublishOnly": "npm run lint && npm run compile"
   },
   "repository": {
     "type": "git",
