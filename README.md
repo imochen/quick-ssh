@@ -1,14 +1,8 @@
-# Quick-SSH
+# Quick-SSH@V3
 
 Only use for Public Key unavailable.
 
 Probably don't need `Quick SSH`, If you can use Public Key for login.
-
-## Update
-
-### 1.0.3
-
-- add ssh port support, default 22.
 
 ## Usage
 
@@ -22,16 +16,16 @@ npm install -g @mochen/qss
 qss add
 ```
 
-#### edit user or host
+#### manage user or host
 
 ```shell
-qss config
+qss admin
 ```
 
-#### remove user or host
+#### show local config
 
-```shell
-qss remove
+```show
+qss show
 ```
 
 #### list all host and select login
@@ -40,4 +34,4 @@ qss remove
 qss
 ```
 
-Config File at `$HOME/.qssrc`
+Config File at `$HOME/.qss/config`
