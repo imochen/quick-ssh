@@ -1,0 +1,18 @@
+{
+  "compilerOptions": {
+    "module": "CommonJS", // 指定生成哪个模块系统代码
+    "target": "ES5",
+    "noImplicitAny": true, // 在表达式和声明上有隐含的 any类型时报错
+    // "removeComments": false, // 删除所有注释，除了以 /!*开头的版权信息
+    "preserveConstEnums": true, // 保留 const和 enum声明
+    "declaration": false, //生成相应的 .d.ts文件
+    "listFiles": false, // 编译过程中打印文件名
+    "newLine": "lf", // 当生成文件时指定行结束符： "crlf"（windows）或 "lf"（unix）。
+    "outDir": "./dist", // 重定向输出目录
+    "moduleResolution": "node",
+    "esModuleInterop": true,
+    "lib": ["ESNext"]
+  },
+  "include": ["src/**/*.ts"],
+  "exclude": []
+}

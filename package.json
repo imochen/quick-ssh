@@ -1,27 +1,49 @@
 {
   "name": "@mochen/qss",
-  "version": "2.0.1",
-  "description": "",
-  "main": "index.js",
+  "version": "3.0.0",
+  "description": "Manage your ssh connection with Qss",
   "bin": {
-    "qss": "./bin/qss"
+    "qss": "./dist/bin/qss.js"
+  },
+  "scripts": {
+    "compile": "tsc",
+    "lint": "eslint src/**/*.ts",
+    "lint:fix": "eslint src/**/*.ts --fix",
+    "prepublishOnly": "npm run lint && npm run compile"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/imochen/quick-ssh.git"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "keywords": [
+    "ssh",
+    "ssh manager",
+    "ssh without password",
+    "auto ssh"
+  ],
+  "author": "mochen <mochen.china@gmail.com>",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/imochen/quick-ssh/issues"
   },
   "homepage": "https://github.com/imochen/quick-ssh#readme",
   "dependencies": {
-    "boxen": "^4.2.0",
+    "@mochen/toolkit": "^0.1.3",
     "dayjs": "^1.8.28",
     "fs-extra": "^8.0.1",
-    "inquirer": "^6.4.1",
-    "yargs": "^13.2.4"
+    "inquirer": "^6.5.2",
+    "os-locale": "^5.0.0",
+    "yargs": "^13.3.2"
+  },
+  "devDependencies": {
+    "@types/inquirer": "^8.2.1",
+    "@types/node": "^18.0.6",
+    "@types/yargs": "^17.0.10",
+    "@typescript-eslint/eslint-plugin": "^5.30.7",
+    "@typescript-eslint/parser": "^5.30.7",
+    "eslint": "^8.20.0",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-plugin-import": "^2.26.0",
+    "typescript": "^4.7.4"
   }
 }
