@@ -1,6 +1,6 @@
 #!/usr/bin/expect
 
-set timeout 20
+set timeout 5
 set user [lindex $argv 0]
 set host [lindex $argv 1]
 set pwd [lindex $argv 2]
