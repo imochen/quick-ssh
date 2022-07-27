@@ -1,6 +1,6 @@
 {
   "name": "@mochen/qss",
-  "version": "3.0.0",
+  "version": "3.0.1",
   "description": "Manage your ssh connection with Qss",
   "bin": {
     "qss": "./dist/bin/qss.js"
